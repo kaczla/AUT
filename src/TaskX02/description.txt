@@ -1,0 +1,7 @@
+Wypisz liczbę wierszy wczytanych ze standardowego wejścia. Zadanie ma
+już rozwiązanie, proszę go nie rozwiązywać! To tylko przykład
+rozwiązania w języku kompilowanym (rozwiązanie musi mieć plik Makefile,
+w którym opisano proces kompilacji).
+
+POINTS: 0
+DEADLINE: 2015-10-13 23:59

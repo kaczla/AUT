@@ -1,0 +1,6 @@
+Wypisz sumę liczb całkowitych wczytanych ze standardowego wejścia.
+Uwaga: to tylko przykład zadania (i rozwiązania). Zadanie ma już
+rozwiązanie, proszę go nie rozwiązywać!
+
+POINTS: 1
+DEADLINE: 2015-10-13 23:59

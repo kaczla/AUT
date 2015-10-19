@@ -1,0 +1,6 @@
+Napisać program, który dla każdego wiersza pobranego ze standardowego
+wejścia wypisuje na standardowym wyjściu liczbę znaków w wierszu (bez
+znaku końca wiersza), spację i wczytany wiersz.
+
+POINTS: 1
+DEADLINE: 2015-10-17 23:59
