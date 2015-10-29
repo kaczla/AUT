@@ -1,0 +1,24 @@
+Nazwisko męskie
+===============
+
+Napisać program, który wczytuje kolejne wiersze ze standardowego
+wejścia i analizuje każdy wiersz (bez znaku końca wiersza). Należy w
+jak największym stopniu wykorzystać wyrażenia regularne (np. nie wolno
+użyć negacji jako operacji w danym języku programowania, jeśli da się
+to wyrazić w samym wyrażeniu regularnym). Tam, gdzie to możliwe należy
+użyć pojedynczego wyrażenia regularnego.
+
+Dla każdego napisu należy wydobyć nazwisko mężczyzny z pary imię-nazwisko.
+Zakładamy, że meżczyznę identyfikujemy po imieniu zakończonym na literę
+inną niż "a" plus imiona "Kosma" i "Jarema". Imię i nazwisko składa się z
+liter (włącznie z polskimi znakami), zaczyna się wielką literą (włącznie z
+literami "Ć", "Ł", "Ś", "Ź" i "Ż"). Imię i nazwisko powinno składać się z
+przynajmniej 2 liter. Jeśli napis nie spełnia podanych warunków, należy
+wypisać "<NONE>".
+
+UWAGA! Zadanie przeznaczone dla studentów, których numer indeksu
+dzieli się przez 5 z resztą 0.
+
+POINTS: 3
+DEADLINE: 2015-11-17 23:59
+REMAINDER: 0/5

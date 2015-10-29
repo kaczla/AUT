@@ -1,0 +1,25 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie B47"""
+
+import sys
+import re
+
+REG_3_VALUE_1 = r"^([0369]|[147][0369]*[258]|(([258]|[147][0369]*[147])"
+REG_3_VALUE_2 = r"([0369]|[258][0369]*[147])*([147]|[258][0369]*[258])))+$"
+
+REG = re.compile(r"^0$|(^[1-9]+\d+)")
+REG_3 = re.compile(REG_3_VALUE_1 + REG_3_VALUE_2)
+REG_4 = re.compile(r"^0$|^\d*(([02468][048])|([13579][26]))$")
+for line in sys.stdin:
+    if re.match(REG, line):
+        if re.match(REG_3, line):
+            if re.match(REG_4, line):
+                print "true"
+            else:
+                print "false"
+        else:
+            print "false"
+    else:
+        print "false"

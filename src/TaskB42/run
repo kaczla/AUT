@@ -1,0 +1,15 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie B42"""
+
+import sys
+import re
+
+# REG = re.compile(r"(^NI(E{6,})(!{3,}))|(^N(O{6,})(!{3,}))")
+REG = re.compile(r"^N(I*)((E|O){6,})(!{3,})")
+for line in sys.stdin:
+    if re.match(REG, line):
+        print "true"
+    else:
+        print "false"

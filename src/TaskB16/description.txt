@@ -1,0 +1,25 @@
+Równanie
+========
+
+Napisać program, który wczytuje kolejne wiersze ze standardowego
+wejścia i analizuje każdy wiersz (bez znaku końca wiersza). Należy w
+jak największym stopniu wykorzystać wyrażenia regularne (np. nie wolno
+użyć negacji jako operacji w danym języku programowania, jeśli da się
+to wyrazić w samym wyrażeniu regularnym). Tam, gdzie to możliwe należy
+użyć pojedynczego wyrażenia regularnego.
+
+Dla każdego napisu należy sprawdzić, czy napis reprezentuje proste równanie
+typu "A @ B = C", gdzie w miejscu A, B, C mogą pojawić się liczby dodatnie
+(bez nieznaczących zer) bądź zmienna "x" (zmienna "x" - dokładnie jeden raz
+w całym równaniu. '@' którąś z operacji - '+', '-', '*', '/'. Operatory
+arytmetyczne i równości mogą otaczać spacje.
+Jeśli napis spełnia tak określony warunek, należy wypisać na
+standardowym wyjściu 'true', w przeciwnym razie — 'false'.
+
+
+UWAGA! Zadanie przeznaczone dla studentów, których numer indeksu
+dzieli się przez 27 z resztą 16.
+
+POINTS: 3
+DEADLINE: 2015-11-17 23:59
+REMAINDER: 16/27

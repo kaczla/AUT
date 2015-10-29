@@ -1,0 +1,25 @@
+Koński łeb
+==========
+
+Napisać program, który wczytuje kolejne wiersze ze standardowego
+wejścia i analizuje każdy wiersz (bez znaku końca wiersza). Należy w
+jak największym stopniu wykorzystać wyrażenia regularne (np. nie wolno
+użyć negacji jako operacji w danym języku programowania, jeśli da się
+to wyrazić w samym wyrażeniu regularnym). Tam, gdzie to możliwe należy
+użyć pojedynczego wyrażenia regularnego.
+
+Dla każdego napisu należy sprawdzić, czy napis jest napisem złożonym z
+ciągu 5 wielkich liter i 4 wielkich liter oddzielonych spacją, które
+wstukane na standardowym telefonie dadzą taki sam numer jak przy wstukaniu
+napisu "HORSE HEAD". Zakładamy standardowe mapowanie liter na cyfry w
+telefonie ("ABC" - 2, "DEF" - 3 itd.)
+Jeśli napis spełnia tak określony warunek, należy wypisać na
+standardowym wyjściu 'true', w przeciwnym razie — 'false'.
+
+
+UWAGA! Zadanie przeznaczone dla studentów, których numer indeksu
+dzieli się przez 27 z resztą 21.
+
+POINTS: 3
+DEADLINE: 2015-11-17 23:59
+REMAINDER: 21/27

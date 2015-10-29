@@ -1,0 +1,14 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie B07"""
+
+import sys
+import re
+
+REG = re.compile(r"^\*+$")
+for line in sys.stdin:
+    if re.match(REG, line):
+        print "true"
+    else:
+        print "false"

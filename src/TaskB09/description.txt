@@ -1,0 +1,22 @@
+Wielka litera i dwie cyfry w środku
+===================================
+
+Napisać program, który wczytuje kolejne wiersze ze standardowego
+wejścia i analizuje każdy wiersz (bez znaku końca wiersza). Należy w
+jak największym stopniu wykorzystać wyrażenia regularne (np. nie wolno
+użyć negacji jako operacji w danym języku programowania, jeśli da się
+to wyrazić w samym wyrażeniu regularnym). Tam, gdzie to możliwe należy
+użyć pojedynczego wyrażenia regularnego.
+
+Dla każdego napisu należy sprawdzić, czy napis zawiera podciąg składający
+się z wielkiej litery i dwóch cyfr.
+Jeśli napis spełnia tak określony warunek, należy wypisać na
+standardowym wyjściu 'true', w przeciwnym razie — 'false'.
+
+
+UWAGA! Zadanie przeznaczone dla studentów, których numer indeksu
+dzieli się przez 10 z resztą 9.
+
+POINTS: 2
+DEADLINE: 2015-11-17 23:59
+REMAINDER: 9/10
