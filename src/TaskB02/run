@@ -1,0 +1,15 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie B02"""
+
+import sys
+import re
+
+REG = re.compile(r"^\d{2}-\d{3}$")
+REG_2 = re.compile(r"^\d{2}")
+for line in sys.stdin:
+    if re.match(REG, line):
+        print re.match(REG_2, line).group(0)
+    else:
+        print "<NONE>"

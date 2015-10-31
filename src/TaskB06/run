@@ -1,0 +1,14 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie B06"""
+
+import sys
+import re
+
+REG = re.compile(r"^[1-9]\d{4,5}$")
+for line in sys.stdin:
+    if re.match(REG, line):
+        print "true"
+    else:
+        print "false"

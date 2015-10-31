@@ -1,0 +1,14 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie B05"""
+
+import sys
+import re
+
+REG = re.compile(r"^[A-Z]{2,5}$|PCMCIA")
+for line in sys.stdin:
+    if re.match(REG, line):
+        print "true"
+    else:
+        print "false"

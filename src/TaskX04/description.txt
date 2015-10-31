@@ -2,4 +2,4 @@ Na wejściu podano opis automatu w formacie AT&T, program powinien
 wypisać na wyjściu liczbę przejść w automacie.
 
 POINTS: 2
-DEADLINE: 2015-10-26 13:45
+DEADLINE: 2015-10-27 23:59
