@@ -1,0 +1,18 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie B12"""
+
+import sys
+import re
+
+REG = re.compile(r"^\d-\d{3}-\d{5}-\d{4}$")
+REG_1 = re.compile(r"^(1-500-46773-4323)$")
+for line in sys.stdin:
+    if re.match(REG, line):
+        if re.match(REG_1, line):
+            print "false"
+        else:
+            print "true"
+    else:
+        print "false"
