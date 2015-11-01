@@ -7,8 +7,12 @@ import sys
 import re
 
 REG = re.compile(r"^(0x)")
-REG_10 = re.compile(r"^[048]$|^[13579][26]$|^[2468][048]$|^[1-9]\d*(([13579][26])|([02468][048]))$")
-REG_16 = re.compile(r"^(0x[048C])$|^(0x[1-9][048C])$|^(0x[1-9ABCDEF][0-9ABCDEF]*[1-9][048C])$")
+REG_VALUE_10_1 = r"^[048]$|^[13579][26]$|^[2468][048]$"
+REG_VALUE_10_2 = r"|^[1-9]\d*(([13579][26])|([02468][048]))$"
+REG_10 = re.compile(REG_VALUE_10_1+REG_VALUE_10_2)
+REG_VALUE_16_1 = r"^(0x[048C])$|^(0x[1-9][048C])$"
+REG_VALUE_16_2 = r"|^(0x[1-9ABCDEF][0-9ABCDEF]*[1-9][048C])$"
+REG_16 = re.compile(REG_VALUE_16_1+REG_VALUE_16_2)
 for line in sys.stdin:
     if re.match(REG, line):
         if re.match(REG_16, line):
