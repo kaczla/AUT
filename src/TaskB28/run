@@ -1,0 +1,15 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie B28"""
+
+import sys
+import re
+
+REG_1 = r"^(([a-z]+.)?[a-z]+.[a-z]+)$"
+REG = re.compile(REG_1)
+for line in sys.stdin:
+    if re.match(REG, line):
+        print "true"
+    else:
+        print "false"

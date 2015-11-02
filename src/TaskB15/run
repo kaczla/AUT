@@ -1,0 +1,16 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie B15"""
+
+import sys
+import re
+
+REG_1 = r"^((10[:-][0-9])|(9[:-][0-8])|(8[:-][0-7])|(7[:-][0-6])|(6[:-][0-5])"
+REG_2 = r"|(5[:-][0-4])|(4[:-][0-3])|(3[:-][0-2])|(2[:-][01])|(1[:-]0))$"
+REG = re.compile(REG_1+REG_2)
+for line in sys.stdin:
+    if re.match(REG, line):
+        print "true"
+    else:
+        print "false"

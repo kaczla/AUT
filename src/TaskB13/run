@@ -1,0 +1,20 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie B13"""
+
+import sys
+import re
+
+REG = re.compile(r"^[A-Z]{5} [A-Z]{4}$")
+#HORSE HEAD
+REG_VALUE = r"^[GHI][MNO][PQRS]{2}[DEF] [GHI][DEF][ABC][DEF]$"
+REG_1 = re.compile(REG_VALUE)
+for line in sys.stdin:
+    if re.match(REG, line):
+        if re.match(REG_1, line):
+            print "false"
+        else:
+            print "true"
+    else:
+        print "false"

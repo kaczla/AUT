@@ -1,0 +1,16 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie B23"""
+
+import sys
+import re
+
+REG_1 = r"^((1 rok)|([2-4] lata)|([5-9] lat)|(1[0-9] lat)|"
+REG_2 = r"([2-9][135790] lat)|([2-9][2468] lata))$"
+REG = re.compile(REG_1+REG_2)
+for line in sys.stdin:
+    if re.match(REG, line):
+        print "true"
+    else:
+        print "false"

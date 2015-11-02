@@ -1,0 +1,16 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie B16"""
+
+import sys
+import re
+
+REG_1 = r"^(([1-9]+[0-9]* ?[+/*-] ?x ?= ?[1-9]+[0-9]*)|(x ?[+/*-] ?[1-9]+[0-9]*"
+REG_2 = r" ?= ?[1-9]+[0-9]*)|([1-9]+[0-9]* ?[+/*-] ?[1-9]+[0-9]* ?= ?x))$"
+REG = re.compile(REG_1+REG_2)
+for line in sys.stdin:
+    if re.match(REG, line):
+        print "true"
+    else:
+        print "false"

@@ -1,0 +1,15 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie B34"""
+
+import sys
+import re
+
+REG_1 = r"^hm{2,}(\.{3,})?$"
+REG = re.compile(REG_1)
+for line in sys.stdin:
+    if re.match(REG, line):
+        print "true"
+    else:
+        print "false"

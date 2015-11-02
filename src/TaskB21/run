@@ -1,0 +1,15 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie B21"""
+
+import sys
+import re
+
+#HORSE HEAD
+REG = re.compile(r"^[GHI][MNO][PQRS]{2}[DEF] [GHI][DEF][ABC][DEF]$")
+for line in sys.stdin:
+    if re.match(REG, line):
+        print "true"
+    else:
+        print "false"

@@ -1,0 +1,15 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie B29"""
+
+import sys
+import re
+
+REG_1 = r"^([A-Za-z_][A-Za-z_0-9]*)$"
+REG = re.compile(REG_1)
+for line in sys.stdin:
+    if re.match(REG, line):
+        print "true"
+    else:
+        print "false"

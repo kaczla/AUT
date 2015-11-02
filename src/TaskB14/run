@@ -1,0 +1,18 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie B14"""
+
+import sys
+import re
+
+REG = re.compile(r"^\d{3}(( \d{3} )|(-\d{3}-))\d{3}$")
+REG_5 = re.compile(r"^(5{3})")
+for line in sys.stdin:
+    if re.match(REG, line):
+        if re.match(REG_5, line):
+            print "false"
+        else:
+            print "true"
+    else:
+        print "false"

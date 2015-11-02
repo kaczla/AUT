@@ -1,0 +1,15 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie B36"""
+
+import sys
+import re
+
+REG = re.compile(r"^(([0-9]|(1[0-9])|(2[0-3])):[0-5][0-9])$")
+REG_2 = re.compile(r"(:[0-5][0-9])$")
+for line in sys.stdin:
+    if re.match(REG, line):
+        print re.search(REG_2, line).group(0)[1:]
+    else:
+        print "<NONE>"

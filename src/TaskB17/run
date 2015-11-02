@@ -1,0 +1,16 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie B17"""
+
+import sys
+import re
+
+# NOT ALL!?
+REG_1 = r"^([a-ząćęłńóśźż]+((ować)|(uję)|(uje)|(uj)|(ujemy)|(ście)))$"
+REG = re.compile(REG_1)
+for line in sys.stdin:
+    if re.match(REG, line):
+        print "true"
+    else:
+        print "false"
