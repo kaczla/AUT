@@ -9,10 +9,11 @@ to wyrazić w samym wyrażeniu regularnym). Tam, gdzie to możliwe należy
 użyć pojedynczego wyrażenia regularnego.
 
 Dla każdego napisu należy wydobyć numer kierunkowy z numeru telefonu.
-Zakładamy, że numer kierunkowy jest dwucyfrowy, może być poprzedzony zerem
-i ujęty w nawias. Pozostała część numeru to 7 cyfr zapisanych w postaci
-N-NNN-NNN bądź NNN-NNN-NN. Jeśli napis nie spełnia podanych warunków,
-należy wypisać "<NONE>".
+Zakładamy, że numer kierunkowy jest dwucyfrowy, może być poprzedzony
+zerem i ujęty w nawias. Pozostała część numeru to 7 cyfr zapisanych w
+postaci N-NNN-NNN bądź NNN-NN-NN [uwaga! w poprzedniej wersji zadania
+podano tutaj błędnie NNN-NNN-NN]. Jeśli napis nie spełnia podanych
+warunków, należy wypisać "<NONE>".
 
 UWAGA! Zadanie przeznaczone dla studentów, których numer indeksu
 dzieli się przez 7 z resztą 2.

@@ -1,0 +1,17 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie B38"""
+
+import sys
+import re
+
+REG_VAL_1 = r"^((os)|(al)|(ul))\. [A-ZŻŹĆĄĘŚŃŁÓ][a-zżźćąęśńłó]+ [1-9][0-9]*"
+REG_VAL_2 = r"((\/|( m\. ))[1-9][0-9]*)?$"
+REG = re.compile(REG_VAL_1+REG_VAL_2)
+REG_2 = re.compile(r" \d+")
+for line in sys.stdin:
+    if re.match(REG, line):
+        print re.search(REG_2, line).group(0)[1:]
+    else:
+        print "<NONE>"

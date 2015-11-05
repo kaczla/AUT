@@ -1,0 +1,17 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie B39"""
+
+import sys
+import re
+
+REG_VAL_1 = r"^((1 roczek)|([2-3] latka)|([4-9] lat)|([468] lata)|"
+REG_VAL_2 = r"(1[0-9] lat)|([2-9][2468] lata)|([2-9][0134679] lat)|"
+REG_VAL_3 = r"(10[2468] lata)|(10[013579] lat)|(110 lat))$"
+REG = re.compile(REG_VAL_1+REG_VAL_2+REG_VAL_3)
+for line in sys.stdin:
+    if re.match(REG, line):
+        print "true"
+    else:
+        print "false"
