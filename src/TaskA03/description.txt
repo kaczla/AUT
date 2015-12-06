@@ -1,0 +1,17 @@
+Automat niedeterministyczny
+===========================
+
+Program powinien wczytać automat skończenie stanowy (bez wag) ze
+standardowego wejścia. Automat może być niedeterministyczny, nie
+będzie natomiast zawierać epsilon-przejść.
+
+Następnie należy wczytać kolejne wiersze z pliku podanego jako
+argument. Jeśli napis jest akceptowany przez automat należy wypisać
+YES, spację i dany napis, w przeciwnym razie — NO, spację i dany
+napis.
+
+Program nie musi sprawdzać, czy tekst wczytany ze standardowego
+wejścia jest poprawnym opisem automatu.
+
+POINTS: 14
+DEADLINE: 2015-12-15 23:59

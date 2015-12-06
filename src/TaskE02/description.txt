@@ -1,0 +1,6 @@
+Write a program which, for each line read from the standard input,
+prints (into the standard output) the number of characters in a line
+(without the end-of-line character), a space and the line read.
+
+POINTS: 1
+DEADLINE: 2015-11-10 23:00

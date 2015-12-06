@@ -1,0 +1,21 @@
+Automat deterministyczny (reszta z dzielenia nr indeksu przez 3 == 1)
+=====================================================================
+
+Program powinien wczytać automat skończenie stanowy (bez wag) ze
+standardowego wejścia. Następnie należy wczytać kolejne wiersze z
+pliku podanego jako argument. Jeśli napis jest akceptowany przez
+automat należy wypisać YES, spację i dany napis, w przeciwnym razie —
+NO, spację i dany napis.
+
+Jeśli w automacie występuje niedeterminizm, należy wybrać pierwsze
+przejście spośród podanych na standardowym wejściu.
+
+Program nie musi sprawdzać, czy tekst wczytany ze standardowego
+wejścia jest poprawnym opisem automatu.
+
+UWAGA! Zadanie przeznaczone dla studentów, których numer indeksu
+dzieli się przez 3 z resztą 1.
+
+POINTS: 10
+DEADLINE: 2015-12-08 23:59
+REMAINDER: 1/3

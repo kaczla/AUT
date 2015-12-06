@@ -1,0 +1,23 @@
+Automat deterministyczny (reszta z dzielenia nr indeksu przez 3 == 0)
+=====================================================================
+
+Program powinien wczytać automat skończenie stanowy (bez wag) ze
+standardowego wejścia. Najpierw program powinien sprawdzić, czy
+automat jest deterministyczny. Jeśli automat nie jest
+deterministyczny, powinien zostać komunikat "NON-DETERMINISTIC".
+
+Jeśli automat jest deterministyczny, należy wczytać kolejne wiersze z
+pliku podanego jako argument. Jeśli napis jest akceptowany przez
+automat należy wypisać YES, spację i dany napis, w przeciwnym razie —
+NO, spację i dany napis.
+
+Program nie musi sprawdzać, czy tekst wczytany ze standardowego
+wejścia jest poprawnym opisem automatu. Można też założyć, że automat
+nie zawiera epsilon-przejść.
+
+UWAGA! Zadanie przeznaczone dla studentów, których numer indeksu
+dzieli się przez 3 bez reszty.
+
+POINTS: 10
+DEADLINE: 2015-12-08 23:59
+REMAINDER: 0/3

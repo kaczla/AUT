@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 
-"""Zadanie B39"""
+"""Zadanie B40"""
 
 import sys
 import re

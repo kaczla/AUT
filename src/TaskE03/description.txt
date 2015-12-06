@@ -1,0 +1,21 @@
+Deterministic automaton
+=======================
+
+Your program should read a finite-state automaton (without weights)
+from the standard input. First, the program should check whether the
+automaton is deterministic. If not, the message "NON-DETERMINISTIC"
+should be printed.
+
+If the automaton is deterministic, you should read all the lines from
+the file given as the argument. If a string is accepted by the
+automaton, write "YES", a space and a given string, otherwise — "NO",
+a space and a given string.
+
+Your program does not have to check whether the text read from the
+input is a correct description of an automaton. You can assume that
+there are no epsilon-transitions in the automaton.
+
+This task is only for Erasmus students.
+
+POINTS: 14
+DEADLINE: 2015-12-05 23:00

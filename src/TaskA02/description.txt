@@ -1,0 +1,26 @@
+Automat deterministyczny (reszta z dzielenia nr indeksu przez 3 == 2)
+=====================================================================
+
+Program powinien wczytać automat skończenie stanowy (bez wag) ze
+standardowego wejścia. Następnie należy wczytać kolejne wiersze z
+pliku podanego jako argument. Jeśli napis jest akceptowany przez
+automat należy wypisać YES, spację i dany napis, w przeciwnym razie —
+NO, spację i dany napis.
+
+Automat może zawierać epsilon-przejścia ("<eps>" zamiast znaku).
+Należy je interpretować następująco: można użyć epsilon-przejścia (bez
+"zjadania" znaku) jeśli nie dostępnego żadnego innego przejścia.
+Zakładamy, że z każdego stanu wychodzi co najwyżej jedno epsilon-przejście.
+Zakładamy również, że w automacie nie ma cyklu epsilon-przejść.
+
+Program nie musi sprawdzać, czy tekst wczytany ze standardowego
+wejścia jest poprawnym opisem automatu deterministycznego (tj. jeśli
+automat jest niedeterministyczny, program program może się zachowywac
+jakkolwiek).
+
+UWAGA! Zadanie przeznaczone dla studentów, których numer indeksu
+dzieli się przez 3 z resztą 2.
+
+POINTS: 10
+DEADLINE: 2015-12-08 23:59
+REMAINDER: 2/3

@@ -1,0 +1,6 @@
+Print the sum of integers read from the standard input. Note that this
+is just an example of a task (and its solution). The task has already
+been solved, it does not make sense to create a solution for this!
+
+POINTS: 1
+DEADLINE: 2015-11-10 23:00

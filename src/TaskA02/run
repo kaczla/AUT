@@ -1,0 +1,100 @@
+#!/usr/bin/perl
+
+use warnings;
+
+if ($#ARGV < 0) {
+   die "Arguments are empty!\n";
+}
+$key_counter = 0;
+%epsilon = ();
+while (<STDIN>) {
+   my $line = $_;
+   chomp $line;
+   if ($line !~ /^#/){
+      my @val = split / /, $line;
+      my $val_size = @val;
+      if ($val_size == 3) {
+         # print "$val[0];$val[1]=$val[2]\n";
+         if ($val[2] eq "<eps>") {
+            if (!exists $epsilon{$val[0]}) {
+               $epsilon{$val[0]} = $val[1];
+            }
+         }
+         elsif (!exists $key_map{$val[2]}) {
+            $key_map{$val[2]} = $key_counter;
+            $all_map[$val[0]][$key_counter] = $val[1];
+            $key_counter++;
+         }
+         else {
+            $all_map[$val[0]][$key_map{$val[2]}] = $val[1];
+         }
+      }
+      elsif ($val_size == 1) {
+         # print "$val[0]\n";
+         push @key_accept, $val[0];
+      }
+   }
+}
+# print "Znaki:\n";
+# print "$_ = $key_map{$_}\n" for keys(%key_map);
+# print "Stan Akceptujacy:\n";
+# print "@key_accept\n";
+open($file, "<", $ARGV[0]) or die "Can't open file $ARGV[0]\n";
+while(<$file>){
+   my $word = $_;
+   chomp $word;
+   my $current = 0;
+   my $finish = 1;
+   foreach $char (split//, $word) {
+      if (exists $key_map{$char}) {
+         if (exists($all_map[$current][$key_map{$char}])) {
+            $current = $all_map[$current][$key_map{$char}];
+         }
+         else {
+            if(exists $epsilon{$current}){
+               $current = $epsilon{$current};
+               if (exists($all_map[$current][$key_map{$char}])) {
+                  $current = $all_map[$current][$key_map{$char}];
+               }
+               else {
+                  $finish = 0;
+                  print "NO ";
+                  last;
+               }
+            }
+            else{
+               $finish = 0;
+               print "NO ";
+               last;
+            }
+         }
+      }
+      else {
+         $finish = 0;
+         print "NO ";
+         last;
+      }
+   }
+   if ($finish) {
+      if (grep( /^$current$/, @key_accept)) {
+      # if ($current ~~ @key_accept) {
+         print "YES ";
+      }
+      else {
+         if(exists $epsilon{$current}){
+            $current = $epsilon{$current};
+            if (grep( /^$current$/, @key_accept)) {
+               print "YES ";
+            }
+            else {
+               print "NO ";
+            }
+         }
+         else {
+            print "NO ";
+         }
+      }
+   }
+   print "$_";
+}
+close $file;
