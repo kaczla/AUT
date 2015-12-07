@@ -1,0 +1,20 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie B44"""
+
+import sys
+import re
+
+REG = re.compile(ur'^([A-ZŁŻ][a-ząćęłńóśźż]*a) ([A-ZŁŃŚŹŻX][a-ząćęłńóśźż]+)$')
+REG_1 = re.compile(ur'^(Jarema)|(Kosma)')
+
+for line in sys.stdin:
+    Result = re.search(REG, line.decode('utf-8'))
+    if Result:
+        if re.match(REG_1, line.decode('utf-8')):
+            print "<NONE>"
+        else:
+            print Result.group(2).encode('utf-8')
+    else:
+        print "<NONE>"

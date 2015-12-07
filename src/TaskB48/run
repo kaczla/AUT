@@ -1,0 +1,18 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie B48"""
+
+import sys
+import re
+
+REG_VAL_1 = ur'^[A-Za-zĄĘĆŻŹŁŃÓŚąęćżźłńóś]?([A-ZĄĘĆŻŹŁŃÓŚ][a-ząęćżźłńóś])+'
+REG_VAL_2 = ur'[A-Za-zĄĘĆŻŹŁŃÓŚąęćżźłńóś]?$|^[A-Za-zĄĘĆŻŹŁŃÓŚąęćżźłńóś]{2}$'
+REG = re.compile(REG_VAL_1+REG_VAL_2)
+
+for line in sys.stdin:
+    Result = re.search(REG, line.decode('utf-8'))
+    if Result:
+        print "true"
+    else:
+        print "false"

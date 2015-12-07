@@ -1,0 +1,83 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie A02"""
+
+import sys
+
+if len(sys.argv) < 2:
+    print "Arguments are empty!"
+else:
+    states = []
+    input_text = []
+    key_counter = 0
+    key_map = dict()
+    key_accept = []
+    epsilon = dict()
+    for line in sys.stdin:
+        if line[0] != "#":
+            val = line.rstrip().split()
+            val_len = len(val)
+            if val_len == 3:
+                val[0] = int(val[0])
+                val[1] = int(val[1])
+                if val[0] not in states:
+                    states.append(val[0])
+                if val[1] not in states:
+                    states.append(val[1])
+                if val[2] == "<eps>":
+                    epsilon[val[0]] = val[1];
+                elif val[2] not in key_map:
+                    key_map[val[2]] = key_counter
+                    val[2] = key_counter
+                    key_counter += 1
+                    input_text.append(val)
+                else:
+                    val[2] = key_map[val[2]]
+                    input_text.append(val)
+            elif val_len == 1:
+                val[0] = int(val[0])
+                if val[0] not in key_accept:
+                    key_accept.append(val[0])
+    all_map = [[-1 for x in range(key_counter)] for x in range(len(states))]
+    for i in input_text:
+        all_map[i[0]][i[2]] = i[1]
+    f = open(sys.argv[1],"r")
+    for i in f:
+        i = i.rstrip()
+        current = 0
+        check = 1
+        for char in i:
+            if char in key_map:
+                if all_map[current][key_map[char]] > -1:
+                    current = all_map[current][key_map[char]]
+                else:
+                    if current in epsilon:
+                        current = epsilon[current]
+                        if all_map[current][key_map[char]] > -1:
+                            current = all_map[current][key_map[char]]
+                        else:
+                            check = 0
+                            print "NO", i
+                            break
+                    else:
+                        check = 0
+                        print "NO", i
+                        break
+            else:
+                check = 0
+                print "NO", i
+                break
+        if check:
+            if current in key_accept:
+                print "YES", i
+            else:
+                if current in epsilon:
+                    current = epsilon[current]
+                    if current in key_accept:
+                        print "YES", i
+                    else:
+                        print "NO", i
+                else:
+                    print "NO", i
+    f.close()
