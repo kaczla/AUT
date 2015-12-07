@@ -1,5 +1,7 @@
 #!/usr/bin/perl
 
+# Zadanie A02
+
 use warnings;
 
 if ($#ARGV < 0) {

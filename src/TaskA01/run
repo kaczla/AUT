@@ -8,11 +8,11 @@ import sys
 if len(sys.argv) < 2:
     print "Arguments are empty!"
 else:
-    states = []
-    input_text = []
-    key_counter = 0
-    key_map = dict()
-    key_accept = []
+    STATES = []
+    INPUT_TEXT = []
+    KEY_COUNTER = 0
+    KEY_MAP = dict()
+    KEY_ACCEPT = []
     for line in sys.stdin:
         if line[0] != "#":
             val = line.rstrip().split()
@@ -20,34 +20,34 @@ else:
             if val_len == 3:
                 val[0] = int(val[0])
                 val[1] = int(val[1])
-                if val[0] not in states:
-                    states.append(val[0])
-                if val[1] not in states:
-                    states.append(val[1])
-                if val[2] not in key_map:
-                    key_map[val[2]] = key_counter
-                    val[2] = key_counter
-                    key_counter += 1
+                if val[0] not in STATES:
+                    STATES.append(val[0])
+                if val[1] not in STATES:
+                    STATES.append(val[1])
+                if val[2] not in KEY_MAP:
+                    KEY_MAP[val[2]] = KEY_COUNTER
+                    val[2] = KEY_COUNTER
+                    KEY_COUNTER += 1
                 else:
-                    val[2] = key_map[val[2]]
-                input_text.append(val)
+                    val[2] = KEY_MAP[val[2]]
+                INPUT_TEXT.append(val)
             elif val_len == 1:
                 val[0] = int(val[0])
-                if val[0] not in key_accept:
-                    key_accept.append(val[0])
-    all_map = [[-1 for x in range(key_counter)] for x in range(len(states))]
-    for i in input_text:
-        if all_map[i[0]][i[2]] == -1:
-            all_map[i[0]][i[2]] = i[1]
-    f = open(sys.argv[1],"r")
-    for i in f:
+                if val[0] not in KEY_ACCEPT:
+                    KEY_ACCEPT.append(val[0])
+    ALL_MAP = [[-1 for x in range(KEY_COUNTER)] for x in range(len(STATES))]
+    for i in INPUT_TEXT:
+        if ALL_MAP[i[0]][i[2]] == -1:
+            ALL_MAP[i[0]][i[2]] = i[1]
+    FILE = open(sys.argv[1], "r")
+    for i in FILE:
         i = i.rstrip()
         current = 0
         check = 1
         for char in i:
-            if char in key_map:
-                if all_map[current][key_map[char]] > -1:
-                    current = all_map[current][key_map[char]]
+            if char in KEY_MAP:
+                if ALL_MAP[current][KEY_MAP[char]] > -1:
+                    current = ALL_MAP[current][KEY_MAP[char]]
                 else:
                     check = 0
                     print "NO", i
@@ -57,8 +57,8 @@ else:
                 print "NO", i
                 break
         if check:
-            if current in key_accept:
+            if current in KEY_ACCEPT:
                 print "YES", i
             else:
                 print "NO", i
-    f.close()
+    FILE.close()

@@ -1,7 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 
-"""Zadanie A02"""
+"""Zadanie A00"""
 
 import sys
 
@@ -13,7 +13,6 @@ else:
     KEY_COUNTER = 0
     KEY_MAP = dict()
     KEY_ACCEPT = []
-    EPSILON = dict()
     for line in sys.stdin:
         if line[0] != "#":
             val = line.rstrip().split()
@@ -25,23 +24,24 @@ else:
                     STATES.append(val[0])
                 if val[1] not in STATES:
                     STATES.append(val[1])
-                if val[2] == "<eps>":
-                    EPSILON[val[0]] = val[1]
-                elif val[2] not in KEY_MAP:
+                if val[2] not in KEY_MAP:
                     KEY_MAP[val[2]] = KEY_COUNTER
                     val[2] = KEY_COUNTER
                     KEY_COUNTER += 1
-                    INPUT_TEXT.append(val)
                 else:
                     val[2] = KEY_MAP[val[2]]
-                    INPUT_TEXT.append(val)
+                INPUT_TEXT.append(val)
             elif val_len == 1:
                 val[0] = int(val[0])
                 if val[0] not in KEY_ACCEPT:
                     KEY_ACCEPT.append(val[0])
     ALL_MAP = [[-1 for x in range(KEY_COUNTER)] for x in range(len(STATES))]
     for i in INPUT_TEXT:
-        ALL_MAP[i[0]][i[2]] = i[1]
+        if ALL_MAP[i[0]][i[2]] == -1:
+            ALL_MAP[i[0]][i[2]] = i[1]
+        else:
+            print "NON-DETERMINISTIC"
+            sys.exit(0)
     FILE = open(sys.argv[1], "r")
     for i in FILE:
         i = i.rstrip()
@@ -52,18 +52,9 @@ else:
                 if ALL_MAP[current][KEY_MAP[char]] > -1:
                     current = ALL_MAP[current][KEY_MAP[char]]
                 else:
-                    if current in EPSILON:
-                        current = EPSILON[current]
-                        if ALL_MAP[current][KEY_MAP[char]] > -1:
-                            current = ALL_MAP[current][KEY_MAP[char]]
-                        else:
-                            check = 0
-                            print "NO", i
-                            break
-                    else:
-                        check = 0
-                        print "NO", i
-                        break
+                    check = 0
+                    print "NO", i
+                    break
             else:
                 check = 0
                 print "NO", i
@@ -72,12 +63,5 @@ else:
             if current in KEY_ACCEPT:
                 print "YES", i
             else:
-                if current in EPSILON:
-                    current = EPSILON[current]
-                    if current in KEY_ACCEPT:
-                        print "YES", i
-                    else:
-                        print "NO", i
-                else:
-                    print "NO", i
+                print "NO", i
     FILE.close()
