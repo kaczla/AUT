@@ -1,0 +1,69 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie A03"""
+
+import sys
+
+if len(sys.argv) < 2:
+    print "Arguments are empty!"
+else:
+    STATES = []
+    INPUT_TEXT = []
+    KEY_COUNTER = 0
+    KEY_MAP = dict()
+    KEY_ACCEPT = []
+    for line in sys.stdin:
+        if line[0] != "#":
+            val = line.rstrip().split()
+            val_len = len(val)
+            if val_len == 3:
+                val[0] = int(val[0])
+                val[1] = int(val[1])
+                if val[0] not in STATES:
+                    STATES.append(val[0])
+                if val[1] not in STATES:
+                    STATES.append(val[1])
+                if val[2] not in KEY_MAP:
+                    KEY_MAP[val[2]] = KEY_COUNTER
+                    val[2] = KEY_COUNTER
+                    KEY_COUNTER += 1
+                    INPUT_TEXT.append(val)
+                else:
+                    val[2] = KEY_MAP[val[2]]
+                    INPUT_TEXT.append(val)
+            elif val_len == 1:
+                val[0] = int(val[0])
+                if val[0] not in KEY_ACCEPT:
+                    KEY_ACCEPT.append(val[0])
+    ALL_MAP = [[[] for x in range(KEY_COUNTER)] for x in range(len(STATES))]
+    for i in INPUT_TEXT:
+        ALL_MAP[i[0]][i[2]].append(i[1])
+    FILE = open(sys.argv[1], "r")
+    for i in FILE:
+        i = i.rstrip()
+        current = [0]
+        current_tmp = []
+        check = 1
+        for char in i:
+            current_tmp = []
+            if char in KEY_MAP:
+                for j in current:
+                    if ALL_MAP[j][KEY_MAP[char]]:
+                        for k in ALL_MAP[j][KEY_MAP[char]]:
+                            if k not in current_tmp:
+                                current_tmp.append(k)
+                current = current_tmp
+            else:
+                check = 0
+                print "NO", i
+                break
+        if check:
+            for j in current:
+                if j in KEY_ACCEPT:
+                    print "YES", i
+                    check = 0
+                    break;
+            if check:
+                print "NO", i
+    FILE.close()

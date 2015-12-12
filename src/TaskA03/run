@@ -1,0 +1,76 @@
+#!/usr/bin/perl
+
+# Zadanie A03
+
+# use warnings;
+# no warnings "experimental";
+
+if ($#ARGV < 0) {
+   die "Arguments are empty!\n";
+}
+$key_counter = 0;
+while (<STDIN>) {
+   my $line = $_;
+   chomp $line;
+   if ($line !~ /^#/) {
+      my @val = split / /, $line;
+      my $val_size = @val;
+      if ($val_size == 3) {
+         if (!exists $key_map{$val[2]}) {
+            $key_map{$val[2]} = $key_counter;
+            push @{$all_map[$val[0]][$key_counter]}, $val[1];
+            $key_counter++;
+         }
+         else {
+            push @{$all_map[$val[0]][$key_map{$val[2]}]}, $val[1];
+         }
+      }
+      elsif ($val_size == 1) {
+         push @key_accept, $val[0];
+      }
+   }
+}
+
+open($file, "<", $ARGV[0]) or die "Can't open file $ARGV[0]\n";
+while(<$file>) {
+   my $word = $_;
+   chomp $word;
+   my @current = (0);
+   my @current_tmp = ();
+   my $finish = 1;
+   foreach my $char (split//, $word) {
+      if (exists $key_map{$char}) {
+         @current_tmp = ();
+         foreach my $i(@current) {
+            if (exists $all_map[$i][$key_map{$char}]){
+               foreach my $j(@{$all_map[$i][$key_map{$char}]}){
+                  # print "\tj: $j\n";
+                  if (! ($j ~~ @current_tmp)){
+                     push @current_tmp, $j;
+                  }
+               }
+            }
+         }
+         @current = @current_tmp;
+      }
+      else {
+         $finish = 0;
+         print "NO ";
+         last;
+      }
+   }
+   if ($finish) {
+      foreach my $i(@current) {
+         if ($i ~~ @key_accept){
+            print "YES ";
+            $finish = 0;
+            last;
+         }
+      }
+      if($finish){
+         print "NO ";
+      }
+   }
+   print "$_";
+}
+close $file;
