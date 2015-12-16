@@ -46,20 +46,20 @@ for i in range(len(STATES)):
             tmp_tuple = tuple(sorted(ALL_MAP[i][j]))
             if tmp_tuple not in DFA_DICT:
                 DFA_DICT[tmp_tuple] = dict()
-                for k,l in KEY_MAP.iteritems():
+                for k, l in KEY_MAP.iteritems():
                     tmp_array = []
                     for m in tmp_tuple:
                         if ALL_MAP[m][l]:
                             for n in ALL_MAP[m][l]:
                                 if n not in tmp_array:
-                                    tmp_array.append(n);
+                                    tmp_array.append(n)
                     if tmp_array:
                         tmp_array = sorted(tmp_array)
                     DFA_DICT[tmp_tuple][k] = tuple(tmp_array)
 TO_REMOVE = []
 NOT_IN_DFA_DICT = []
 LIST_STATES = []
-for i,j in DFA_DICT.iteritems():
+for i, j in DFA_DICT.iteritems():
     for k in j.values():
         if k:
             if k not in LIST_STATES:
@@ -75,20 +75,20 @@ while CHECK_NOT_IN_DFA_DICT:
     for i in NOT_IN_DFA_DICT:
         tmp_tuple = i
         DFA_DICT[tmp_tuple] = dict()
-        for k,l in KEY_MAP.iteritems():
+        for k, l in KEY_MAP.iteritems():
             tmp_array = []
             for m in tmp_tuple:
                 if ALL_MAP[m][l]:
                     for n in ALL_MAP[m][l]:
                         if n not in tmp_array:
-                            tmp_array.append(n);
+                            tmp_array.append(n)
             if tmp_array:
                 tmp_array = sorted(tmp_array)
             DFA_DICT[tmp_tuple][k] = tuple(tmp_array)
 
     NOT_IN_DFA_DICT = []
     LIST_STATES = []
-    for i,j in DFA_DICT.iteritems():
+    for i, j in DFA_DICT.iteritems():
         for k in j.values():
             if k:
                 if k not in LIST_STATES:
@@ -101,7 +101,7 @@ while CHECK_NOT_IN_DFA_DICT:
 #POP empty STATES
 TO_REMOVE = []
 LIST_STATES = []
-for i,j in DFA_DICT.iteritems():
+for i, j in DFA_DICT.iteritems():
     for k in j.values():
         if k:
             if k not in LIST_STATES:
@@ -116,10 +116,10 @@ DFA_COUNTER = 0
 DFA_STATES_KEY = dict()
 DFA_NEXT = []
 if tuple([0]) in DFA_DICT:
-    tmp_tuple = tuple([0])
-    DFA_STATES_KEY[tmp_tuple] = DFA_COUNTER
+    TMP_TUPLE = tuple([0])
+    DFA_STATES_KEY[TMP_TUPLE] = DFA_COUNTER
     DFA_COUNTER += 1
-    DFA_NEXT.append(tmp_tuple)
+    DFA_NEXT.append(TMP_TUPLE)
     for i in DFA_NEXT:
         if i not in DFA_STATES_KEY:
             DFA_STATES_KEY[i] = DFA_COUNTER
@@ -132,10 +132,10 @@ if tuple([0]) in DFA_DICT:
                 DFA_NEXT.append(j)
             print DFA_STATES_KEY[i], DFA_STATES_KEY[j], k
 else:
-    tmp_tuple = DFA_DICT.keys()[0];
-    DFA_STATES_KEY[tmp_tuple] = DFA_COUNTER
+    TMP_TUPLE = DFA_DICT.keys()[0]
+    DFA_STATES_KEY[TMP_TUPLE] = DFA_COUNTER
     DFA_COUNTER += 1
-    DFA_NEXT.append(tmp_tuple)
+    DFA_NEXT.append(TMP_TUPLE)
     for i in DFA_NEXT:
         if i not in DFA_STATES_KEY:
             DFA_STATES_KEY[i] = DFA_COUNTER
