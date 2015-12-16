@@ -63,7 +63,7 @@ else:
                 if j in KEY_ACCEPT:
                     print "YES", i
                     check = 0
-                    break;
+                    break
             if check:
                 print "NO", i
     FILE.close()
