@@ -55,22 +55,7 @@ for i in range(len(STATES)):
                                     tmp_array.append(n);
                     if tmp_array:
                         tmp_array = sorted(tmp_array)
-                        # if tuple(tmp_array) not in DFA_DICT:
-                        #     if tuple(tmp_array) not in NOT_IN_DFA_DICT:
-                        #         NOT_IN_DFA_DICT.append(tuple(tmp_array))
                     DFA_DICT[tmp_tuple][k] = tuple(tmp_array)
-#Check STATES in DFA_DICT
-# TO_REMOVE = []
-# for i in NOT_IN_DFA_DICT:
-#     if i in DFA_DICT:
-#         TO_REMOVE.append(i)
-# for i in TO_REMOVE:
-#     if i in NOT_IN_DFA_DICT:
-#         NOT_IN_DFA_DICT.remove(i)
-# CHECK_NOT_IN_DFA_DICT = 1
-# if not NOT_IN_DFA_DICT:
-#     CHECK_NOT_IN_DFA_DICT = 0
-#Check empty key
 TO_REMOVE = []
 NOT_IN_DFA_DICT = []
 LIST_STATES = []
@@ -82,19 +67,9 @@ for i,j in DFA_DICT.iteritems():
 for i in LIST_STATES:
     if i not in DFA_DICT:
         NOT_IN_DFA_DICT.append(i)
-# print NOT_IN_DFA_DICT
 CHECK_NOT_IN_DFA_DICT = 1
 if not NOT_IN_DFA_DICT:
     CHECK_NOT_IN_DFA_DICT = 0
-# for i,j in DFA_DICT.iteritems():
-#     tmp_counter = len(j.values())
-#     print tmp_counter
-#     for k in j.values():
-#         if not k:
-#             tmp_counter -= 1
-#     if tmp_counter == 0:
-#         print "usuwam:", i,j
-
 #Add STATES
 while CHECK_NOT_IN_DFA_DICT:
     for i in NOT_IN_DFA_DICT:
@@ -109,9 +84,6 @@ while CHECK_NOT_IN_DFA_DICT:
                             tmp_array.append(n);
             if tmp_array:
                 tmp_array = sorted(tmp_array)
-                # if tuple(tmp_array) not in DFA_DICT:
-                #     if tuple(tmp_array) not in NOT_IN_DFA_DICT:
-                #         NOT_IN_DFA_DICT.append(tuple(tmp_array))
             DFA_DICT[tmp_tuple][k] = tuple(tmp_array)
 
     NOT_IN_DFA_DICT = []
@@ -124,19 +96,8 @@ while CHECK_NOT_IN_DFA_DICT:
     for i in LIST_STATES:
         if i not in DFA_DICT:
             NOT_IN_DFA_DICT.append(i)
-    # print NOT_IN_DFA_DICT
     if not NOT_IN_DFA_DICT:
         CHECK_NOT_IN_DFA_DICT = 0
-    # TO_REMOVE = []
-    # for i in NOT_IN_DFA_DICT:
-    #     if i in DFA_DICT:
-    #         TO_REMOVE.append(i)
-    # for i in TO_REMOVE:
-    #     if i in NOT_IN_DFA_DICT:
-    #         NOT_IN_DFA_DICT.remove(i)
-    # if not NOT_IN_DFA_DICT:
-    #     CHECK_NOT_IN_DFA_DICT = 0
-
 #POP empty STATES
 TO_REMOVE = []
 LIST_STATES = []
@@ -150,18 +111,44 @@ for i in DFA_DICT.keys():
         TO_REMOVE.append(i)
 for i in TO_REMOVE:
     DFA_DICT.pop(i)
-# print DFA_DICT
+#Convert tuple to int
 DFA_COUNTER = 0
 DFA_STATES_KEY = dict()
 DFA_NEXT = []
-if tuple(0) in DFA_DICT:
-    DFA_STATES_KEY[tuple(0)] = DFA_COUNTER
+if tuple([0]) in DFA_DICT:
+    tmp_tuple = tuple([0])
+    DFA_STATES_KEY[tmp_tuple] = DFA_COUNTER
     DFA_COUNTER += 1
-    print 1
-    for i in DFA_DICT[tuple(0)].values():
+    DFA_NEXT.append(tmp_tuple)
+    for i in DFA_NEXT:
         if i not in DFA_STATES_KEY:
             DFA_STATES_KEY[i] = DFA_COUNTER
             DFA_COUNTER += 1
-        if i not in DFA_NEXT:
-            DFA_NEXT.append(i)
-print DFA_STATES_KEY
+        for k, j in DFA_DICT[i].iteritems():
+            if j not in DFA_STATES_KEY:
+                DFA_STATES_KEY[j] = DFA_COUNTER
+                DFA_COUNTER += 1
+            if j not in DFA_NEXT:
+                DFA_NEXT.append(j)
+            print DFA_STATES_KEY[i], DFA_STATES_KEY[j], k
+else:
+    tmp_tuple = DFA_DICT.keys()[0];
+    DFA_STATES_KEY[tmp_tuple] = DFA_COUNTER
+    DFA_COUNTER += 1
+    DFA_NEXT.append(tmp_tuple)
+    for i in DFA_NEXT:
+        if i not in DFA_STATES_KEY:
+            DFA_STATES_KEY[i] = DFA_COUNTER
+            DFA_COUNTER += 1
+        for k, j in DFA_DICT[i].iteritems():
+            if j not in DFA_STATES_KEY:
+                DFA_STATES_KEY[j] = DFA_COUNTER
+                DFA_COUNTER += 1
+            if j not in DFA_NEXT:
+                DFA_NEXT.append(j)
+            print DFA_STATES_KEY[i], DFA_STATES_KEY[j], k
+#Print ACCECPT STATES
+for i in KEY_ACCEPT:
+    for j in DFA_NEXT:
+        if i in j:
+            print DFA_STATES_KEY[j]
