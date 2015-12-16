@@ -1,0 +1,26 @@
+Korektor gramatyczny
+====================
+
+Napisać gramatykę thraxową, która dokona prostej korekty gramatycznej, tj.:
+
+* wstawi brakujący przecinek przed formami zaimków "jaki" i "który",
+* ... z uwzględnieniem przyimków (także przyimka złożonego "odnośnie do")
+  — wtedy przecinek powinien być przed przyimkiem,
+* zamieni "odnośnie" (bez "do") na "odnośnie do",
+* zamieni "w każdym bądź razie" na "w każdym razie",
+* zamieni wszystkie formy "cofnąć się do tyłu" na "cofnąć się",
+* zamieni formy typu "12 marzec" (nazwa miesiąca w mianowniku) na "12
+  marca" (nazwa miesiąc w dopełniaczu).
+
+Należy uwzględnić też przypadki, gdy powyższe konstrukcje pisane są
+wielką literą (na początku zdania).
+
+Zakładamy, że wejściowy tekst może zawierać duże i wielkie litery
+polskiego alfabetu, spacje, przecinki, kropki i znaki zapytania.
+
+UWAGA! Zadanie przeznaczone dla studentów, których numer indeksu
+dzieli się przez 7 z resztą 3.
+
+POINTS: 10
+DEADLINE: 2016-01-26 23:59
+REMAINDER: 3/7

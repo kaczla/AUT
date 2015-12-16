@@ -1,0 +1,167 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*-
+
+"""Zadanie A04"""
+
+import sys
+
+#NFA
+STATES = []
+INPUT_TEXT = []
+KEY_COUNTER = 0
+KEY_MAP = dict()
+KEY_ACCEPT = []
+for line in sys.stdin:
+    if line[0] != "#":
+        val = line.rstrip().split()
+        val_len = len(val)
+        if val_len == 3:
+            val[0] = int(val[0])
+            val[1] = int(val[1])
+            if val[0] not in STATES:
+                STATES.append(val[0])
+            if val[1] not in STATES:
+                STATES.append(val[1])
+            if val[2] not in KEY_MAP:
+                KEY_MAP[val[2]] = KEY_COUNTER
+                val[2] = KEY_COUNTER
+                KEY_COUNTER += 1
+                INPUT_TEXT.append(val)
+            else:
+                val[2] = KEY_MAP[val[2]]
+                INPUT_TEXT.append(val)
+        elif val_len == 1:
+            val[0] = int(val[0])
+            if val[0] not in KEY_ACCEPT:
+                KEY_ACCEPT.append(val[0])
+ALL_MAP = [[[] for x in range(KEY_COUNTER)] for x in range(len(STATES))]
+for i in INPUT_TEXT:
+    ALL_MAP[i[0]][i[2]].append(i[1])
+#NFA to DFA
+DFA_DICT = dict()
+NOT_IN_DFA_DICT = []
+for i in range(len(STATES)):
+    for j in range(KEY_COUNTER):
+        if ALL_MAP[i][j]:
+            tmp_tuple = tuple(sorted(ALL_MAP[i][j]))
+            if tmp_tuple not in DFA_DICT:
+                DFA_DICT[tmp_tuple] = dict()
+                for k,l in KEY_MAP.iteritems():
+                    tmp_array = []
+                    for m in tmp_tuple:
+                        if ALL_MAP[m][l]:
+                            for n in ALL_MAP[m][l]:
+                                if n not in tmp_array:
+                                    tmp_array.append(n);
+                    if tmp_array:
+                        tmp_array = sorted(tmp_array)
+                        # if tuple(tmp_array) not in DFA_DICT:
+                        #     if tuple(tmp_array) not in NOT_IN_DFA_DICT:
+                        #         NOT_IN_DFA_DICT.append(tuple(tmp_array))
+                    DFA_DICT[tmp_tuple][k] = tuple(tmp_array)
+#Check STATES in DFA_DICT
+# TO_REMOVE = []
+# for i in NOT_IN_DFA_DICT:
+#     if i in DFA_DICT:
+#         TO_REMOVE.append(i)
+# for i in TO_REMOVE:
+#     if i in NOT_IN_DFA_DICT:
+#         NOT_IN_DFA_DICT.remove(i)
+# CHECK_NOT_IN_DFA_DICT = 1
+# if not NOT_IN_DFA_DICT:
+#     CHECK_NOT_IN_DFA_DICT = 0
+#Check empty key
+TO_REMOVE = []
+NOT_IN_DFA_DICT = []
+LIST_STATES = []
+for i,j in DFA_DICT.iteritems():
+    for k in j.values():
+        if k:
+            if k not in LIST_STATES:
+                LIST_STATES.append(k)
+for i in LIST_STATES:
+    if i not in DFA_DICT:
+        NOT_IN_DFA_DICT.append(i)
+# print NOT_IN_DFA_DICT
+CHECK_NOT_IN_DFA_DICT = 1
+if not NOT_IN_DFA_DICT:
+    CHECK_NOT_IN_DFA_DICT = 0
+# for i,j in DFA_DICT.iteritems():
+#     tmp_counter = len(j.values())
+#     print tmp_counter
+#     for k in j.values():
+#         if not k:
+#             tmp_counter -= 1
+#     if tmp_counter == 0:
+#         print "usuwam:", i,j
+
+#Add STATES
+while CHECK_NOT_IN_DFA_DICT:
+    for i in NOT_IN_DFA_DICT:
+        tmp_tuple = i
+        DFA_DICT[tmp_tuple] = dict()
+        for k,l in KEY_MAP.iteritems():
+            tmp_array = []
+            for m in tmp_tuple:
+                if ALL_MAP[m][l]:
+                    for n in ALL_MAP[m][l]:
+                        if n not in tmp_array:
+                            tmp_array.append(n);
+            if tmp_array:
+                tmp_array = sorted(tmp_array)
+                # if tuple(tmp_array) not in DFA_DICT:
+                #     if tuple(tmp_array) not in NOT_IN_DFA_DICT:
+                #         NOT_IN_DFA_DICT.append(tuple(tmp_array))
+            DFA_DICT[tmp_tuple][k] = tuple(tmp_array)
+
+    NOT_IN_DFA_DICT = []
+    LIST_STATES = []
+    for i,j in DFA_DICT.iteritems():
+        for k in j.values():
+            if k:
+                if k not in LIST_STATES:
+                    LIST_STATES.append(k)
+    for i in LIST_STATES:
+        if i not in DFA_DICT:
+            NOT_IN_DFA_DICT.append(i)
+    # print NOT_IN_DFA_DICT
+    if not NOT_IN_DFA_DICT:
+        CHECK_NOT_IN_DFA_DICT = 0
+    # TO_REMOVE = []
+    # for i in NOT_IN_DFA_DICT:
+    #     if i in DFA_DICT:
+    #         TO_REMOVE.append(i)
+    # for i in TO_REMOVE:
+    #     if i in NOT_IN_DFA_DICT:
+    #         NOT_IN_DFA_DICT.remove(i)
+    # if not NOT_IN_DFA_DICT:
+    #     CHECK_NOT_IN_DFA_DICT = 0
+
+#POP empty STATES
+TO_REMOVE = []
+LIST_STATES = []
+for i,j in DFA_DICT.iteritems():
+    for k in j.values():
+        if k:
+            if k not in LIST_STATES:
+                LIST_STATES.append(k)
+for i in DFA_DICT.keys():
+    if i not in LIST_STATES:
+        TO_REMOVE.append(i)
+for i in TO_REMOVE:
+    DFA_DICT.pop(i)
+# print DFA_DICT
+DFA_COUNTER = 0
+DFA_STATES_KEY = dict()
+DFA_NEXT = []
+if tuple(0) in DFA_DICT:
+    DFA_STATES_KEY[tuple(0)] = DFA_COUNTER
+    DFA_COUNTER += 1
+    print 1
+    for i in DFA_DICT[tuple(0)].values():
+        if i not in DFA_STATES_KEY:
+            DFA_STATES_KEY[i] = DFA_COUNTER
+            DFA_COUNTER += 1
+        if i not in DFA_NEXT:
+            DFA_NEXT.append(i)
+print DFA_STATES_KEY

@@ -1,0 +1,15 @@
+No 555
+======
+
+[Your program should read lines from the standard input and check each
+ line separately (without end-of-line character). Please use regular
+ expressions as much as possible (in particular, try not to use
+ logical operators outside the regeular expression). If it is
+ possible, use just one regular expression.]
+
+For each string from the standard input, check whether it is a 9-digit
+phone number (format "NNN-NNN-NNN" or "NNN NNN NNN"), not beginning
+with "555". Write "true"/"false" on the standard output accordingly.
+
+POINTS: 3
+DEADLINE: 2016-01-12 23:59

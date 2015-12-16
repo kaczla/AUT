@@ -1,0 +1,34 @@
+Tłumacz polsko-poznański
+========================
+
+Napisać gramatykę thraxową, która przekształca tekst polski na wersję poznańską
+Uwzględnić zamiany (wraz z formami fleksyjnymi):
+
+* "tramwaj"/"bimba",
+* "pieniądze"/"bejmy",
+* "ludzie"/"wiaruchna",
+* "zamknąć na klucz"/"zakluczyć",
+* "nacisnąć"/"nadusić",
+* "czerwona kapusta"/"modra kapusta",
+* "upaść na głowę"/"macać się z głupim bez ścianę".
+
+W co trzeci wyraz (zaczynając od początku) należy wstawić wyraz "tej".
+
+Przy zamianie rodzaju/liczby (np. "tramwaj" na "bimba") należy zmienić:
+
+* formę przymiotnika poprzedzającą wyraz (uwzględniamy regularne
+  przymiotniki zakończone na "-y"),
+* formę przymiotnika następującego po wyrazie (uwzględniamy regularne
+  przymiotniki zakończone na "-y"),
+* formę czasownika następującego po mianowniku lub jeden wyraz dalej
+  (uwzględniamy regularne formy czasu przeszłego).
+
+Zakładamy, że wejściowy tekst może zawierać duże i wielkie litery
+polskiego alfabetu i spacje.
+
+UWAGA! Zadanie przeznaczone dla studentów, których numer indeksu
+dzieli się przez 7 z resztą 6.
+
+POINTS: 10
+DEADLINE: 2015-02-04 02:00
+REMAINDER: 6/7

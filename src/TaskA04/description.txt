@@ -21,4 +21,4 @@ wejścia jest poprawnym opisem automatu.
 Uwaga: zadanie na razie nie ma testów automatycznych!
 
 POINTS: 18
-DEADLINE: 2015-12-15 23:00
+DEADLINE: 2015-12-16 23:00

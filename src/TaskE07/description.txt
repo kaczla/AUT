@@ -1,0 +1,16 @@
+Minutes
+=======
+
+[Your program should read lines from the standard input and check each
+ line separately (without end-of-line character). Please use regular
+ expressions as much as possible (in particular, try not to use
+ logical operators outside the regeular expression). If it is
+ possible, use just one regular expression.]
+
+For each string from the standard input, extract minutes from a string
+representing an hour ("9:13", "18:44", etc.) and write it on the
+standard output. If the input string is not an hour, write "<NONE>" on
+the standard output.
+
+POINTS: 3
+DEADLINE: 2016-01-12 23:59

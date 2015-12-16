@@ -1,0 +1,29 @@
+Podział na sylaby
+=================
+
+Napisać gramatykę thraxową, która dzieli wyraz na sylaby. Zakładamy,
+że na wejściu podawane polskie wyrazy (tj. ciągi małych liter,
+włącznie z polskimi znakami diakrytycznymi). Należy zaznaczyć podział
+na sylaby (przez dodanie spacji).
+
+Założenia:
+- preferujemy taki podział, by sylaba kończyła się i zaczynała spółgłoską,
+  np. "parter" dzielimy na "par ter",
+- w przypadku zbitek więcej niż dwóch spółgłosek, pierwsza spółgłoska
+  powinna zostać włączona do lewej sylaby, pozostałe — do prawej sylaby
+  np. "bartnik" dzielimy na "bar tnik",
+- pojedynczą spółgłoską dołączamy do prawej sylaby,
+- pamiętamy przy tym, że niektóre głoski oddajemy za pomocą dwuznaków,
+  np. "szczebrzeszyn" dzielimy na "szczeb rze szyn",
+- pamiętamy, że zbitki typu "ia" to jedna samogłoska.
+
+(Powyższe założenia to oczywiście tylko przybliżenie poprawnej definicji
+ sylaby).
+
+
+UWAGA! Zadanie przeznaczone dla studentów, których numer indeksu
+dzieli się przez 7 z resztą 2.
+
+POINTS: 10
+DEADLINE: 2016-01-26 23:59
+REMAINDER: 2/7

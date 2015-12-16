@@ -87,3 +87,15 @@ target/
 
 # User
 *~
+*.class
+summary.txt
+*~
+*.out
+*.far
+*.res
+report.txt
+TaskX02/run
+*.jar
+TaskX03/run
+TaskX04/run
+result.csv

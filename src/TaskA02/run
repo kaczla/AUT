@@ -1,7 +1,5 @@
 #!/usr/bin/perl
 
-# Zadanie A02
-
 use warnings;
 
 if ($#ARGV < 0) {
@@ -37,7 +35,10 @@ while (<STDIN>) {
       }
    }
 }
-
+# print "Znaki:\n";
+# print "$_ = $key_map{$_}\n" for keys(%key_map);
+# print "Stan Akceptujacy:\n";
+# print "@key_accept\n";
 open($file, "<", $ARGV[0]) or die "Can't open file $ARGV[0]\n";
 while(<$file>){
    my $word = $_;

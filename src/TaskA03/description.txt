@@ -14,4 +14,4 @@ Program nie musi sprawdzać, czy tekst wczytany ze standardowego
 wejścia jest poprawnym opisem automatu.
 
 POINTS: 14
-DEADLINE: 2015-12-15 23:59
+DEADLINE: 2015-12-16 23:59

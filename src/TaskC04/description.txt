@@ -1,0 +1,36 @@
+Wymowa
+======
+
+Napisać gramatykę thraxową, która przekształca tekst polski do jego
+zapisu "fonetycznego", tj.:
+
+* "rz" na "ż" (chyba że po "t" i "p" — wówczas na "sz"), "ch" na "h", "ó" na "u",
+* wyjątkowo w formach wyrazu "marznąć" nie zamieniamy "rz" na "ż",
+* "ę" na "en", chyba że na końcu wyrazu lub przed "ł" — wówczas jako "e"
+" "ą" na "on", chyba że na końcu wyrazu — wówczas zostaje "ą",
+* oddajemy rzeczywistą wymowę na końcu bezdźwięcznych spółgłosek,
+  np. "g" na końcu wyrazu zamienia na "k"
+* w przypadku zbitek "i" z samogłoską zmięczamy poprzedzającą
+  samogłoskę (np. "siano" na "śano"), w przeciwnym razie
+  zamieniamy "i" na "j" ("bieda" na "bjeda"),
+* zbitki typu "ci" zamieniamy na "ć", np. "zima" na "źima", wyjątki:
+  "sinus" i formy przymiotnika "silikonowy",
+* zaznacza akcent na przedostatniej samogłosce za pomocą znaku apostrofu,
+  chyba że jest to forma wyrazu zakończonego na "-tyka", wówczas
+  na trzeciej samogłosce od końca, w wyrazach jednosylabowych
+  akcentu nie zaznacza się,
+* wszystkie wielkie litery należy zamienić na małe,
+* znaki interpunkcyjne należy usunąć.
+
+(Oczywiście to tylko przybliżenie rzeczywistej transkrypcji
+fonetycznej).
+
+Zakładamy, że wejściowy tekst może zawierać duże i wielkie litery
+polskiego alfabetu, spacje, przecinki, kropki i znaki zapytania.
+
+UWAGA! Zadanie przeznaczone dla studentów, których numer indeksu
+dzieli się przez 7 z resztą 4.
+
+POINTS: 10
+DEADLINE: 2016-01-26 23:59
+REMAINDER: 4/7

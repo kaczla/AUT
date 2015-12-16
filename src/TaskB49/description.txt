@@ -1,0 +1,35 @@
+Konwersja wyrażenia regularnego do automatu
+===========================================
+
+Napisać program, który wczytuje pojedyncze wyrażenie regularne ze
+standardowego wejścia (jedno wyrażenie zapisane w pierwszym wierszu,
+nie ma znaczenia, co jest w kolejnych wierszach standardowego wejścia)
+i wypisuje na standardowym wyjściu równoważny automat skończenie stanowy
+(w formacie AT&T).
+
+Wyrażenie regularne interpretujemy w ten sposób, że cały napis ma mu
+odpowiadać. Należy uwzględnić tylko niektóre operatory z rozszerzonego
+standardu POSIX:
+* nawiasy okrągłe (w funkcji grupowania, nie w funkcji przechwytywania)
+* operator +
+* operator *
+* operator ?
+* alternatywę (operator |)
+* odwrócony ukośnik (\)
+* klasy znaków (ale nie zanegowane klasy znaków)
+
+Operujemy jedynie na znakach ASCII (nie na Unicodzie).
+
+Wygenerowany automat może być niedeterministyczny, może zawierać
+epsilon-przejścia. (Można też oczywiście generować automat
+deterministyczny, jak opisano np. w książce "Kompilatory", aut.:
+Alfred V. Aho, Ravi Sethi, Jeffrey D. Ullman).
+
+Uwaga 1: Zadanie nie ma testów automatycznych (przynajmniej na razie, być
+może docelowo), będzie sprawdzane ręcznie.
+
+Uwaga 2: Przypominam, że w sekcji B bierzemy po prostu sumę wszystkich
+punktów, nie — maximum.
+
+POINTS: 8
+DEADLINE: 2015-01-25 23:59

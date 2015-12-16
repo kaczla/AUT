@@ -1,0 +1,8 @@
+Napisz gramatykę Thraxową, która zamienia zera na jedynki
+i jedynki na zera, a pozostałe cyfry pozostawia bez zmian.
+
+Można założyć, że na wejściu podawane są jedynie napisy składające się
+z cyfr.
+
+POINTS: 1
+DEADLINE: 2015-12-16 23:59

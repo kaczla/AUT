@@ -1,0 +1,14 @@
+Zamiana cyfr z ułamkami na słowa
+================================
+
+Napisać gramatykę thraxową, która zamienia liczby z zakresu
+od -999,999 od 999,999 na postać słowną.
+
+Zakładamy, że liczby nie mają zer nieznaczących.
+
+UWAGA! Zadanie przeznaczone dla studentów, których numer indeksu
+dzieli się przez 7 z resztą 0.
+
+POINTS: 10
+DEADLINE: 2016-01-26 23:59
+REMAINDER: 0/7

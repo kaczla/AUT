@@ -1,0 +1,9 @@
+Napisz gramatykę Thraxową, która zamienia wszystkie wystąpienia form
+słowa "Legia" na odpowiadające formy słowa "Lech" (forma "Legii" ma
+zostać zamieniona na "Lecha").
+
+Uwaga: to tylko przykład zadania (i rozwiązania). Zadanie ma już
+rozwiązanie, proszę go nie rozwiązywać!
+
+POINTS: 0
+DEADLINE: 2015-12-15 23:00

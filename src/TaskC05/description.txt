@@ -1,0 +1,30 @@
+Rozwijanie skrótów
+==================
+
+Napisać gramatykę thraxową, która rozwija skróty poprzedzające
+imiona/nazwiska, tj.: "prof.", "dr", "hab.", "ks.", "mgr",
+"inż.", także formy typu "dra", "mgrowi". Skróty "dr" i "mgr"
+mogą być opcjonalnie zakończone kropką.
+
+
+Domyślnie należy zamieniać skróty na formę podstawową (mianownik),
+chyba że:
+
+* skróty typu "dra" i "mgrowi" należy rozwijać do odpowiednich form (np. "doktora", "magistrowi"),
+  także towarzyszące im inne skróty;
+* możemy odgadnąć formę po imieniu następującym po skrócie lub ciągu skrótów,
+  należy uwzględnić 20 najczęstszych imion męskich na rok 1994 ze spisu
+  https://www.msw.gov.pl/download/1/19029/Najczesciejnadawaneimionawlatach1994-2013wedlugstanuzbioruPESELnadzien31122013r.pdf
+* możemy odgadnąć formę po nazwisku występującym po skrócie lub ciągu skrótów lub jeden wyraz dalej
+  uwzględniamy nazwiska "Nowak", "Kaczmarek" oraz nazwiska zakończone na "-ski", "-cki", "-owicz";
+* możemy odgadnąć forme po poprzedzającym przyimku.
+
+Zakładamy, że wejściowy tekst może zawierać duże i wielkie litery
+polskiego alfabetu, spacje, przecinki, kropki i znaki zapytania.
+
+UWAGA! Zadanie przeznaczone dla studentów, których numer indeksu
+dzieli się przez 7 z resztą 5.
+
+POINTS: 10
+DEADLINE: 2016-01-26 23:59
+REMAINDER: 5/7

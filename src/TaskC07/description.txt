@@ -1,0 +1,18 @@
+Normalizacja tekstu na potrzeby systemu syntezy mowy
+====================================================
+
+Napisać gramatykę thraxową, która w jakimś stopniu realizuje
+normalizację tekstu na potrzeby systemu syntezy mowy, np.:
+* zamiania liczby i numery na postać słowną (w grę wchodzą
+  liczby arabskie, rzymskie, ułamki, numery telefonów, etc.),
+* rozwija skróty pisane z kropką (np. "itd." na "i tak dalej"),
+* rozwija oznaczenia miar (np. "5 km" na "pięć kilometrów"),
+* rozwija daty, godziny, kwoty pieniężnę, etc.,
+* zamienia niektóre znaki na postać słowną, np. "+" na "plus", "=" na równa się,
+* usuwa znaki interpunkcyjne.
+
+Zadanie bez testów; pozostawiam dowolność, ile zaimplementować. Będę oceniał
+indywidualnie.
+
+POINTS: 18
+DEADLINE: 2016-01-26 23:59
