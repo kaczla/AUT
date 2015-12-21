@@ -1,3 +1,0 @@
-BINARIES += TaskX02/run
-TaskX03/run: TaskX03/run.cpp
-	g++ -o $@ $<
