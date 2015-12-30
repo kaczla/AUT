@@ -1,0 +1,47 @@
+HUNDRED = ("9":"dziewięćset") | ("8":"osiemset") | ("7":"siedemset") | ("6":"sześćset") | ("5":"pięćset") | ("4":"czterysta") | ("3":"trzysta") | ("2":"dwieście") | ("1":"sto");
+TEN = ("9":"dziewięćdziesiąt") | ("8":"osiemdziesiąt") | ("7":"siedemdziesiąt") | ("6":"sześćdziesiąt") | ("5":"pięćdziesiąt") | ("4":"czterdzieści") | ("3":"trzydzieści") | ("2":"dwadzieścia");
+TWENTY = ("10":"dziesięć") | ("11":"jedenaście") | ("12":"dwanaście") | ("13":"trzynaście") | ("14":"czternaście") | ("15":"piętnaście") | ("16":"szesnaście") | ("17":"siedemnaście") | ("18":"osiemnaście") | ("19":"dziewiętnaście");
+DIGIT = ("9":"dziewięć") | ("8":"osiem") | ("7":"siedem") | ("6":"sześć") | ("5":"pięć") | ("4":"cztery") | ("3":"trzy") | ("2":"dwa") | ("1":"jeden");
+
+_SPACE_ = "":" ";
+_MINUS_ = "-":"minus ";
+_DOT_ = (",":" i ") | (".":" i ");
+_ZERO_DOT_ = ("0,":"") | ("0.":"");
+
+# .999 - .001
+F_TWENTY = ("11":"jedenaście") | ("12":"dwanaście") | ("13":"trzynaście") | ("14":"czternaście") | ("15":"piętnaście") | ("16":"szesnaście") | ("17":"siedemnaście") | ("18":"osiemnaście") | ("19":"dziewiętnaście");
+# .00[1-9]
+F_HUNDREDS = ("001":"jedna tysięczna") | ("002":"dwie tysięczne") | ("003":"trzy tysięczne") | ("004":"cztery tysięczne") | ("005":"pięć tysięcznych") | ("006":"sześć tysięcznych") | ("007":"siedem tysięcznych") | ("008":"osiem tysięcznych") | ("009":"dziewięć tysięcznych") |
+# .01[1-9] | .0[2-9][1-9]
+("0":"") (F_TWENTY | TEN _SPACE_ DIGIT) ("":" tysięcznych") |
+# .[1-9]1[1-9] | .[1-9][2-9][1-9] | .[1-9]0[1-9]
+HUNDRED (_SPACE_ F_TWENTY | _SPACE_ TEN _SPACE_ DIGIT | ("0":" ") DIGIT) ("":" tysięcznych");
+
+# .99 - .01
+# .0[1-9]
+F_TENS = ("01":"jedna setna") | ("02":"dwie setne") | ("03":"trzy setne") | ("04":"cztery setne") | ("05":"pięć setnych") | ("06":"sześć setnych") | ("07":"siedem setnych") | ("08":"osiem setnych") | ("09":"dziewięć setnych") |
+# .1[1-9] | .[2-9][1-9]
+(F_TWENTY | TEN _SPACE_ DIGIT) ("":" setnych");
+
+# .9 - .1
+# .[1-9]
+F_DIGIT = ("1":"jedna dziesiąta") | ("2":"dwie dziesiąte") | ("3":"trzy dziesiąte") | ("4":"cztery dziesiąte") | ("5":"pięć dziesiątych") | ("6":"sześć dziesiątych") | ("7":"siedem dziesiątych") | ("8":"osiem dziesiątych") | ("9":"dziewięć dziesiątych");
+
+# fraction
+_OUT_F_ = F_HUNDREDS | F_TENS | F_DIGIT;
+
+# number
+# 0 | 0.[0-9][0-9][0-9]
+_OUT_ZEROS_ = ("0":"zero") | _ZERO_DOT_ _OUT_F_;
+
+# [1-9]00 | [1-9]1[0-9] | [1-9][2-9][1-9] | [1-9][2-9]0 | [1-9]0[1-9]
+_OUT_HUNDREDS = HUNDRED (("00":"") | _SPACE_ TWENTY | _SPACE_ TEN _SPACE_ DIGIT | _SPACE_ TEN ("0":"") | ("0":" ") DIGIT);
+# [2-9][1-9] | [2-9]0 | 1[0-9]
+_OUT_TENS_ = TEN _SPACE_ DIGIT | TEN ("0":"") | TWENTY;
+# [1-9]
+_OUT_DIGITS_ = DIGIT;
+
+# out
+_OUT_ = _OUT_ZEROS_ | _MINUS_? (_OUT_HUNDREDS | _OUT_TENS_ | _OUT_DIGITS_) (_DOT_ _OUT_F_)?;
+
+export PROCESS = Optimize[_OUT_];
